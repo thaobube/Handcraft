@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Handcraft.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,7 +11,8 @@ namespace Handcraft.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            HomeViewModel hm = new HomeViewModel();
+            return View(hm);
         }
 
         public ActionResult About()
@@ -23,6 +25,13 @@ namespace Handcraft.Controllers
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
+
+        public ActionResult Class()
+        {
+            ViewBag.Message = "Your class page.";
 
             return View();
         }

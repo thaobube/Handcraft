@@ -1,42 +1,247 @@
-﻿<!DOCTYPE html>
-<html>
+﻿<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+-->
+<!doctype html>
+<html lang="zxx">
+
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>UCANCRAFT - Handcraft ASP Project</title>
+    <!-- Template CSS -->
+    @Styles.Render("~/Content/StyleStarter")
+    @RenderSection("MoreCss", false)
+
+    <!-- Template CSS -->
+    <link href="//fonts.googleapis.com/css?family=Oswald:300,400,500,600&display=swap" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,900&display=swap" rel="stylesheet">
+    <!-- Template CSS -->
+
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
+
+    @RenderBody()
+
+    <section class="w3l-footer-22">
+        <!-- footer-22 -->
+        <div class="footer-hny py-5">
+            <div class="container py-lg-5">
+                <div class="text-txt row">
+                    <div class="left-side col-lg-4">
+                        <h3>
+                            <a class="logo-footer" href="index.html">
+                                U<span class="lohny">can</span>craft
+                            </a>
+                        </h3>
+                        <!-- if logo is image enable this
+                                      <a class="navbar-brand" href="#index.html">
+                                          <img src="image-path" alt="Your logo" title="Your logo" style="height:35px;" />
+                                      </a> -->
+                        <p>
+                            Welcome to our world of creation!
+                        </p>
+                        <ul class="social-footerhny mt-lg-5 mt-4">
+
+                            <li>
+                                <a class="facebook" href="#"><span class="fa fa-facebook" aria-hidden="true"></span></a>
+                            </li>
+                            <li>
+                                <a class="twitter" href="#"><span class="fa fa-twitter" aria-hidden="true"></span></a>
+                            </li>
+                            <li>
+                                <a class="google" href="#"><span class="fa fa-google-plus" aria-hidden="true"></span></a>
+                            </li>
+                            <li>
+                                <a class="instagram" href="#"><span class="fa fa-instagram" aria-hidden="true"></span></a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="right-side col-lg-8 pl-lg-5">
+                        <h4>
+                            Women's Day Special Offer
+                            All Flower Classes are Flat 50% Discount
+                        </h4>
+                        <div class="sub-columns">
+                            <div class="sub-one-left">
+                                <h6>Useful Links</h6>
+                                <div class="footer-hny-ul">
+                                    <ul>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="about.html">About</a></li>
+                                        <li><a href="#">Blog</a></li>
+                                        <li><a href="contact.html">Contact</a></li>
+                                    </ul>
+                                    <ul>
+                                        <li><a href="#">Careers</a></li>
+                                        <li><a href="#">Privacy Policy</a></li>
+                                        <li><a href="#">Terms and Conditions</a></li>
+                                        <li><a href="contact.html">Support</a></li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                            <div class="sub-two-right">
+                                <h6>Our Studio</h6>
+                                <p class="mb-5">10 Avenue de ABC, Uccle, Brussels, Belgium</p>
+
+                                <h6>We accept:</h6>
+                                <ul>
+                                    <li>
+                                        <a class="pay-method" href="#">
+                                            <span class="fa fa-cc-visa"
+                                                  aria-hidden="true"></span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="pay-method" href="#">
+                                            <span class="fa fa-cc-mastercard"
+                                                  aria-hidden="true"></span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="pay-method" href="#">
+                                            <span class="fa fa-cc-paypal"
+                                                  aria-hidden="true"></span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="pay-method" href="#">
+                                            <span class="fa fa-cc-amex"
+                                                  aria-hidden="true"></span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="below-section row">
+                    <div class="columns col-lg-6">
+                        <ul class="jst-link">
+                            <li><a href="#">Privacy Policy </a> </li>
+                            <li><a href="#">Term of Service</a></li>
+                            <li><a href="contact.html">Customer Care</a> </li>
+                        </ul>
+                    </div>
+                    <div class="columns col-lg-6 text-lg-right">
+                        <p>
+                            © 2021 Handcraft ASP.NET Project by Thao Nguyen. <br />Template designed by <a href="https://w3layouts.com/" target="_blank">
+                                W3Layouts
+                            </a>
+                        </p>
+                    </div>
+                    <button onclick="topFunction()" id="movetop" title="Go to top">
+                        <span class="fa fa-angle-double-up"></span>
+                    </button>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
+        <!-- //titels-5 -->
+        <!-- move top -->
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+        <script>
+            // When the user scrolls down 20px from the top of the document, show the button
+            window.onscroll = function () {
+                scrollFunction()
+            };
+
+            function scrollFunction() {
+                if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                    document.getElementById("movetop").style.display = "block";
+                } else {
+                    document.getElementById("movetop").style.display = "none";
+                }
+            }
+
+            // When the user clicks on the button, scroll to the top of the document
+            function topFunction() {
+                document.body.scrollTop = 0;
+                document.documentElement.scrollTop = 0;
+            }
+        </script>
+        <!-- /move top -->
+    </section>
+
+
 </body>
+
 </html>
+
+<script src="~/js/jquery-3.3.1.min.js"></script>
+<!--/login-->
+<script>
+    $(document).ready(function () {
+        $(".button-log a").click(function () {
+            $(".overlay-login").fadeToggle(200);
+            $(this).toggleClass('btn-open').toggleClass('btn-close');
+        });
+    });
+    $('.overlay-close1').on('click', function () {
+        $(".overlay-login").fadeToggle(200);
+        $(".button-log a").toggleClass('btn-open').toggleClass('btn-close');
+        open = false;
+    });
+</script>
+<!--//login-->
+<script>
+    // optional
+    $('#customerhnyCarousel').carousel({
+        interval: 5000
+    });
+</script>
+<!-- cart-js -->
+
+<script>
+    transmitv.render();
+
+    transmitv.cart.on('transmitv_checkout', function (evt) {
+        var items, len, i;
+
+        if (this.subtotal() > 0) {
+            items = this.items();
+
+            for (i = 0, len = items.length; i < len; i++) { }
+        }
+    });
+</script>
+<!-- //cart-js -->
+<script>
+    $(document).ready(function () {
+        $('.popup-with-zoom-anim').magnificPopup({
+            type: 'inline',
+            fixedContentPos: false,
+            fixedBgPos: true,
+            overflowY: 'auto',
+            closeBtnInside: true,
+            preloader: false,
+            midClick: true,
+            removalDelay: 300,
+            mainClass: 'my-mfp-zoom-in'
+        });
+
+    });
+</script>
+<!--//search-bar-->
+<!-- disable body scroll which navbar is in active -->
+
+<script>
+    $(function () {
+        $('.navbar-toggler').click(function () {
+            $('body').toggleClass('noscroll');
+        })
+    });
+</script>
+<!-- disable body scroll which navbar is in active -->
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/Bootstrap")
+@RenderSection("LibraryScripts", false)
+@RenderSection("CustomScripts", false)
+
+
+
+
+
+
