@@ -1,0 +1,117 @@
+﻿@model Handcraft.Models.UserModel
+
+@{
+    ViewBag.Title = "Signup";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Signup</h2>
+<section class="w3l-banner-slider-main inner-pagehny">
+    <div class="breadcrumb-infhny">
+        <div class="top-header-content">
+            @{
+                Html.RenderPartial("~/Views/Shared/_header.cshtml");
+            }            <div class="breadcrumb-contentnhy">
+                <div class="container">
+                    <nav aria-label="breadcrumb">
+                        <h2 class="hny-title text-center">Sign Up</h2>
+                        <ol class="breadcrumb mb-0">
+                            <li>
+                                <a href="index.html">Account</a>
+                                <span class="fa fa-angle-double-right"></span>
+                            </li>
+                            <li class="active">Signup</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+</section>
+
+<div class="container">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <div class="col-md-8 col-md-offset-3">
+                <br />
+                <h4>Join With Us!</h4>
+                <hr />
+                <div class="row">
+                    <div class="col-xs-6 col-md-6">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-12">
+                                @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-md-6">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-12">
+                                @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6 col-md-6">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-12">
+                                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-md-6">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Login, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-12">
+                                @Html.EditorFor(model => model.Login, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Login, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6 col-md-6">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-12">
+                                @Html.PasswordFor(model => model.Password, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-md-6">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.ConfirmPassword, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-12">
+                                @Html.PasswordFor(model => model.ConfirmPassword, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-12">
+                    <input type="submit" value="Sign Up" class="btn btn-warning" />
+                </div>
+            </div>
+        </div>
+    }
+    @if (ViewBag.SuccessMessage != null)
+    {
+        @:<div class="alert alert-success">@ViewBag.SuccessMessage</div>
+    }
+    @if (ViewBag.ErrorMessage != null)
+    {
+        @:<div class="alert alert-danger">@ViewBag.ErrorMessage</div>
+    }
+</div>

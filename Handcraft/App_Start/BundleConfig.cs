@@ -24,9 +24,9 @@ namespace Handcraft
             //bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
             //          "~/Scripts/bootstrap.js"));
 
-            //bundles.Add(new StyleBundle("~/Content/css").Include(
-            //          "~/Content/bootstrap.css",
-            //          "~/Content/site.css"));
+            bundles.Add(new StyleBundle("~/Content/css").Include(
+                      "~/Content/bootstrap.css",
+                      "~/css/style-profile.css"));
             bundles.Add(new StyleBundle("~/Content/StyleStarter").Include(
                       "~/css/style-starter.css"));
 

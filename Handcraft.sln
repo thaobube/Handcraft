@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Handcraft.Mappers", "Handcr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Handcraft.Models", "Handcraft.Models\Handcraft.Models.csproj", "{3AAD07E3-E586-4766-B7F8-FFC39C5D5D99}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tools", "Tools\Tools.csproj", "{6A46E4B8-1F2B-46EC-A882-17358B3001DF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +55,10 @@ Global
 		{3AAD07E3-E586-4766-B7F8-FFC39C5D5D99}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3AAD07E3-E586-4766-B7F8-FFC39C5D5D99}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3AAD07E3-E586-4766-B7F8-FFC39C5D5D99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A46E4B8-1F2B-46EC-A882-17358B3001DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A46E4B8-1F2B-46EC-A882-17358B3001DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A46E4B8-1F2B-46EC-A882-17358B3001DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A46E4B8-1F2B-46EC-A882-17358B3001DF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

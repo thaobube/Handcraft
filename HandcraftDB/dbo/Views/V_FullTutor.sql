@@ -8,6 +8,7 @@ SELECT
     u.Phone,
     u.[Login],
     u.[Password],
+    u.Salt,
     u.BirthDate,
     t.[Description],
     t.BankAccount,

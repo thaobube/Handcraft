@@ -1,0 +1,77 @@
+﻿@model Handcraft.Models.LoginModel
+
+
+<h2>Login</h2>
+<section class="w3l-banner-slider-main inner-pagehny">
+    <div class="breadcrumb-infhny">
+        <div class="top-header-content">
+            @{
+                Html.RenderPartial("~/Views/Shared/_header.cshtml");
+            }            <div class="breadcrumb-contentnhy">
+                <div class="container">
+                    <nav aria-label="breadcrumb">
+                        <h2 class="hny-title text-center">Login</h2>
+                        <ol class="breadcrumb mb-0">
+                            <li>
+                                <a href="index.html">Account</a>
+                                <span class="fa fa-angle-double-right"></span>
+                            </li>
+                            <li class="active">Login</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+</section>
+
+<div class="container">
+    @using (Html.BeginForm("Login", "Account", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <br />
+            <h4>Join With Us!</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.Login, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Login, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Login, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.PasswordFor(model => model.Password, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Login" class="btn btn-warning" />
+                </div>
+            </div>
+            @if (ViewBag.ErrorMessage != null)
+            {
+                @:<div class="alert alert-danger">@ViewBag.ErrorMessage</div>
+            }
+        </div>
+    }
+    <div class="form-group">
+        <div class="col-md-12 control">
+            <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%">
+                Don't have an account!
+                <a href="/Account/Signup" class="btn  btn-dark">
+                    Sign Up Here
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

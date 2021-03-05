@@ -43,7 +43,9 @@
   <ItemGroup>
     <Compile Include="CategoryEntity.cs" />
     <Compile Include="ClassEntity.cs" />
+    <Compile Include="ContactMessageEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserEntity.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

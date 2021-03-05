@@ -58,6 +58,7 @@
     <Folder Include="Properties" />
     <Folder Include="dbo\" />
     <Folder Include="dbo\Tables\" />
+    <Folder Include="dbo\Views" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\Workshop.sql" />
@@ -78,5 +79,10 @@
     <Build Include="dbo\Tables\CalendarWorkshop.sql" />
     <Build Include="dbo\Tables\Calendar.sql" />
     <Build Include="dbo\Tables\Admin.sql" />
+    <Build Include="dbo\Views\V_FullClass.sql" />
+    <Build Include="dbo\Views\V_FullCoordinator.sql" />
+    <Build Include="dbo\Views\V_FullTutor.sql" />
+    <Build Include="dbo\Tables\ClassPicture.sql" />
+    <Build Include="dbo\Tables\ContactMessage.sql" />
   </ItemGroup>
 </Project>

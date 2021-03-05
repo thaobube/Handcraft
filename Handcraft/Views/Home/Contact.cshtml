@@ -1,4 +1,5 @@
-﻿@section LibraryScripts
+﻿@model Handcraft.Models.ContactModel
+@section LibraryScripts
 {
     @Scripts.Render("~/bundles/minicart")
 }
@@ -64,7 +65,7 @@
                         <!--/left-->
                         <div class="top-hny-left-content col-lg-6 pl-lg-0">
                             <h6>
-                                Upto 30% off on All styles , <a href="#" target="_blank">
+                                Discover our new Studio, <a href="#" target="_blank">
                                     Click here for <span class="fa fa-hand-o-right hand-icon" aria-hidden="true"></span> <span class="hignlaite">
                                         More
                                         details
@@ -221,10 +222,10 @@
                     <div class="cont-details">
                         <h3 class="hny-title mb-0">
                             Get in <span>touch</span></h5>
-                            <p class="mb-5">We're ready to lead you into the future with Business Services</p>
+                            <p class="mb-5">Let's join with us to enjoy your craft journey.</p>
                             <p class="margin-top">
-                                <span class="texthny">Call Us : </span> <a href="tel:+(21) 255 999 8899">
-                                    +(21)
+                                <span class="texthny">Call Us : </span> <a href="tel:+(32) 255 999 8899">
+                                    +(32)
                                     255 999 8899
                                 </a>
                             </p>
@@ -234,8 +235,7 @@
                                 </a>
                             </p>
                             <p class="margin-top">
-                                433 California St, Suite 300
-                                San Francisco, CA 94104, USA
+                                10 Avenue de ABC, Uccle 1180, Brussels, Belgium
                             </p>
                     </div>
                     <div class="hours">
@@ -251,8 +251,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6 map">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387190.2895687731!2d-74.26055986835598!3d40.697668402590374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew+York%2C+NY%2C+USA!5e0!3m2!1sen!2sin!4v1562582305883!5m2!1sen!2sin"
-                            frameborder="0" style="border:0" allowfullscreen=""></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2521.5523718999584!2d4.321834915563311!3d50.802403779525484!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c3c5ca28ef3d0d%3A0xe09286736d33dfd4!2sUccle-%20%2F%20Ukkel-Stalle!5e0!3m2!1sen!2sbe!4v1614239520240!5m2!1sen!2sbe" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 </div>
             </div>
         </div>
@@ -262,16 +261,28 @@
             <div class="container py-lg-5">
                 <div class="form">
                     <h3 class="hny-title two text-center">Fill out the form.</h3>
-                    <form action="https://sendmail.w3layouts.com/submitForm" class="mt-md-5 mt-4" method="post">
+                    <form class="mt-md-5 mt-4" method="post">
+                        @Html.AntiForgeryToken()
                         <div class="input-grids">
-                            <input type="text" name="w3lName" id="w3lName" placeholder="Name">
-                            <input type="email" name="w3lSender" id="w3lSender" placeholder="Email" required="" />
-                            <input type="subject" name="w3lSubject" id="w3lSubject" placeholder="Subject" required="">
+                            <input type="text" name="Name" id="w3lName" placeholder="Name" required />
+                            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                            <input type="email" name="Email" id="w3lSender" placeholder="Email" required />
+                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                            <input type="text" name="Subject" id="w3lSubject" placeholder="Subject" required />
+                            @Html.ValidationMessageFor(model => model.Subject, "", new { @class = "text-danger" })
                         </div>
                         <div class="input-textarea">
-                            <textarea name="w3lMessage" id="w3lMessage" placeholder="Message" required=""></textarea>
+                            <textarea name="MessageContent" id="w3lMessage" placeholder="Message"></textarea>
                         </div>
                         <button type="submit" class="btn">Send</button>
+                        @if (ViewBag.SuccessMessage != null)
+                        {
+                            @:<div class="alert alert-success">@ViewBag.SuccessMessage</div>
+                        }
+                        @if (ViewBag.ErrorMessage != null)
+                        {
+                            @:<div class="alert alert-danger">@ViewBag.ErrorMessage</div>
+                        }
                     </form>
                 </div>
             </div>
