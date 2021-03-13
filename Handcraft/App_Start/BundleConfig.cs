@@ -34,7 +34,9 @@ namespace Handcraft
           "~/css/style-liberty.css"));
 
             bundles.Add(new StyleBundle("~/Content/StyleClass").Include(
-"~/css/style-class.css"));
+"~/css/style-class.css")); 
+            bundles.Add(new StyleBundle("~/Content/StyleClassInfo").Include(
+"~/css/style-class-info.css"));
             bundles.Add(new StyleBundle("~/Content/FontAwesome").Include(
 "~/css/font-awesome.min.css"));
 

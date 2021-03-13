@@ -108,7 +108,7 @@
               -moz-background-size: cover;
         }
         .w3l-banner-slider-main .right-banner {
-            background: url(../images/left3.jpg) no-repeat center;
+            background: url(../images/11.jpg) no-repeat center;
             background-size: cover;
             display: grid;
             align-items: center;
@@ -117,14 +117,16 @@
         }
     </style>
 }
-
+@*<h2>
+        <a href="@Url.Action("Test", "Home", new { id = 1 })">Hello WAD20</a>
+        <a href="@Url.Action("Test", "Home", new { id = 2 })">Hello WEB8</a>
+    </h2>*@
 <!--w3l-banner-slider-main-->
 <section class="w3l-banner-slider-main">
-    <div class="top-header-content">        
+    <div class="top-header-content">
         @{
             Html.RenderPartial("~/Views/Shared/_header.cshtml");
         }
-
 
         <div class="bannerhny-content">
 
@@ -231,14 +233,14 @@
                 {
                     <div class="col-lg-2 col-md-4 col-6 welcome-image">
                         <div class="boxhny13">
-                            <a href="@item.Link">
+                            <a href="@Url.Action("Class", "Home", new { category = item.Name })">
                                 <img src="@item.Picture" class="img-fluid" alt="" />
                                 <div class="boxhny-content">
-                                    <h3 class="title">See More
+                                    <h3 class="title">See More</h3>
                                 </div>
                             </a>
                         </div>
-                        <h4><a href="@item.Link">@item.Name</a></h4>
+                        <h4>@item.Name</h4>
 
                     </div>
                 }
@@ -275,7 +277,7 @@
                             Discover our <span>new workshop</span>
                         </h3>
                         <p>Visit our studio to enjoy your craft journey.</p>
-                        <a href="#" class="read-more btn">
+                        <a href="/Home/ClassInfo/1012" class="read-more btn">
                             See more
                         </a>
                     </div>
@@ -297,252 +299,14 @@
                 @foreach (Handcraft.Models.ClassModel item in Model.Classes)
                 {
                     <div class="col-lg-3 col-6 product-incfhny mt-4">
-                        <div class="product-grid2">
-                            <div class="product-image2">
-                                <a href="#">
-                                    <img class="pic-1 img-fluid" src="/images/@item.ThumbnailFront">
-                                    <img class="pic-2 img-fluid" src="/images/@item.ThumbnailBack">
-                                </a>
-                                <ul class="social">
-                                    <li><a href="#" data-tip="Quick View"><span class="fa fa-eye"></span></a></li>
-
-                                    <li>
-                                        <a href="#" data-tip="Add to Cart"><span class="fa fa-shopping-bag"></span></a>
-                                    </li>
-                                </ul>
-                                <div class="transmitv single-item">
-                                    <form action="#" method="post">
-                                        <input type="hidden" name="cmd" value="_cart">
-                                        <input type="hidden" name="add" value="1">
-                                        <input type="hidden" name="transmitv_item" value="Men's Pink Shirt">
-                                        <input type="hidden" name="amount" value="599.99">
-                                        <button type="submit" class="transmitv-cart ptransmitv-cart add-to-cart">
-                                            Add to Cart
-                                        </button>
-                                    </form>
-                                </div>
-                            </div>
-                            <div class="product-content">
-                                <h3 class="title"><a href="#">@item.ClassName</a></h3>
-                                <span class="price">@item.Price €</span>
-                            </div>
-                        </div>
+                        @{
+                            Html.RenderPartial("~/Views/Shared/_ClassCard.cshtml", item);
+                        }
                     </div>
-                }                
+                }
 
             </div>
             <!-- //row-->
         </div>
     </div>
 </section>
-
-<section class="w3l-customers-sec-6">
-    <div class="customers-sec-6-cintent py-5">
-        <!-- /customers-->
-        <div class="container py-lg-5">
-            <h3 class="hny-title text-center mb-0 ">Students <span>Love</span></h3>
-            <p class="mb-5 text-center">What People Say</p>
-            <div class="row customerhny my-lg-5 my-4">
-                <div class="col-md-12">
-                    <div id="customerhnyCarousel" class="carousel slide" data-ride="carousel">
-
-                        <ol class="carousel-indicators">
-                            <li data-target="#customerhnyCarousel" data-slide-to="0" class="active"></li>
-                            <li data-target="#customerhnyCarousel" data-slide-to="1"></li>
-                        </ol>
-                        <!-- Carousel items -->
-                        <div class="carousel-inner">
-
-                            <div class="carousel-item active">
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <div class="customer-info text-center">
-                                            <div class="feedback-hny">
-                                                <span class="fa fa-quote-left"></span>
-                                                <p class="feedback-para">
-                                                    Lorem, ipsum dolor sit amet consectetur
-                                                    adipisicing elit. Labore rem, dicta assumenda mollitia molestias
-                                                    quas nihil quasis.
-                                                </p>
-                                            </div>
-                                            <div class="feedback-review mt-4">
-                                                <img src="/images/c1.jpg" class="img-fluid" alt="">
-                                                <h5>Smith Roy</h5>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="customer-info text-center">
-                                            <div class="feedback-hny">
-                                                <span class="fa fa-quote-left"></span>
-                                                <p class="feedback-para">
-                                                    Lorem, ipsum dolor sit amet consectetur
-                                                    adipisicing elit. Labore rem, dicta assumenda mollitia molestias
-                                                    quas nihil quasis.
-                                                </p>
-                                            </div>
-                                            <div class="feedback-review mt-4">
-                                                <img src="/images/c2.jpg" class="img-fluid" alt="">
-                                                <h5>Lora Grill</h5>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="customer-info text-center">
-                                            <div class="feedback-hny">
-                                                <span class="fa fa-quote-left"></span>
-                                                <p class="feedback-para">
-                                                    Lorem, ipsum dolor sit amet consectetur
-                                                    adipisicing elit. Labore rem, dicta assumenda mollitia molestias
-                                                    quas nihil quasis.
-                                                </p>
-                                            </div>
-                                            <div class="feedback-review mt-4">
-                                                <img src="/images/c3.jpg" class="img-fluid" alt="">
-                                                <h5>Laura Sten</h5>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="customer-info text-center">
-                                            <div class="feedback-hny">
-                                                <span class="fa fa-quote-left"></span>
-                                                <p class="feedback-para">
-                                                    Lorem, ipsum dolor sit amet consectetur
-                                                    adipisicing elit. Labore rem, dicta assumenda mollitia molestias
-                                                    quas nihil quasis.
-                                                </p>
-                                            </div>
-                                            <div class="feedback-review mt-4">
-                                                <img src="/images/c4.jpg" class="img-fluid" alt="">
-                                                <h5>John Lee</h5>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--.row-->
-                            </div>
-                            <!--.item-->
-
-                            <div class="carousel-item">
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <div class="customer-info text-center">
-                                            <div class="feedback-hny">
-                                                <span class="fa fa-quote-left"></span>
-                                                <p class="feedback-para">
-                                                    Lorem, ipsum dolor sit amet consectetur
-                                                    adipisicing elit. Labore rem, dicta assumenda mollitia molestias
-                                                    quas nihil quasis.
-                                                </p>
-                                            </div>
-                                            <div class="feedback-review mt-4">
-                                                <img src="/images/c4.jpg" class="img-fluid" alt="">
-                                                <h5>John Lee</h5>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="customer-info text-center">
-                                            <div class="feedback-hny">
-                                                <span class="fa fa-quote-left"></span>
-                                                <p class="feedback-para">
-                                                    Lorem, ipsum dolor sit amet consectetur
-                                                    adipisicing elit. Labore rem, dicta assumenda mollitia molestias
-                                                    quas nihil quasis.
-                                                </p>
-                                            </div>
-                                            <div class="feedback-review mt-4">
-                                                <img src="/images/c3.jpg" class="img-fluid" alt="">
-                                                <h5>Laura Sten</h5>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="customer-info text-center">
-                                            <div class="feedback-hny">
-                                                <span class="fa fa-quote-left"></span>
-                                                <p class="feedback-para">
-                                                    Lorem, ipsum dolor sit amet consectetur
-                                                    adipisicing elit. Labore rem, dicta assumenda mollitia molestias
-                                                    quas nihil quasis.
-                                                </p>
-                                            </div>
-                                            <div class="feedback-review mt-4">
-                                                <img src="/images/c1.jpg" class="img-fluid" alt="">
-                                                <h5>Smith Roy</h5>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="customer-info text-center">
-                                            <div class="feedback-hny">
-                                                <span class="fa fa-quote-left"></span>
-                                                <p class="feedback-para">
-                                                    Lorem, ipsum dolor sit amet consectetur
-                                                    adipisicing elit. Labore rem, dicta assumenda mollitia molestias
-                                                    quas nihil quasis.
-                                                </p>
-                                            </div>
-                                            <div class="feedback-review mt-4">
-                                                <img src="/images/c2.jpg" class="img-fluid" alt="">
-                                                <h5>Lora Grill</h5>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--.row-->
-                            </div>
-                            <!--.item-->
-
-                        </div>
-                        <!--.carousel-inner-->
-                    </div>
-                    <!--.Carousel-->
-
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- //customers-->
-<section class="w3l-subscription-6">
-    <!--/customers -->
-    <div class="subscription-infhny">
-        <div class="container-fluid">
-
-            <div class="subscription-grids row">
-
-                <div class="subscription-right form-right-inf col-lg-6 p-md-5 p-4">
-                    <div class="p-lg-5 py-md-0 py-3">
-                        <h3 class="hny-title">Join us for FREE to get instant <span>email updates!</span></h3>
-                        <p>Subscribe and get notified at first on the latest update and offers!</p>
-
-                        <form action="#" method="post" class="signin-form mt-lg-5 mt-4">
-                            <div class="forms-gds">
-                                <div class="form-input">
-                                    <input type="email" name="" placeholder="Your email here" required="">
-                                </div>
-                                <div class="form-input"><button class="btn">Join</button></div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <div class="subscription-left forms-25-info col-lg-6 ">
-
-                </div>
-            </div>
-
-            <!--//customers -->
-        </div>
-</section>
-<!-- //customers-6-->

@@ -14,37 +14,27 @@
             <ul class="top-hnt-right-content col-lg-6">
                 @if (Handcraft.Infra.SessionUtils.IsLogged)
                 {
-                    <li class="button-log usernhy">
-                        <a class="btn-open" href="/Account/Logout">
-                            @*<span class="fa fa-user">*@
-                                <i class="fas fa-user-check"></i>
-                            @*</span>*@
-                        </a>
+                    <li class="transmitvcart galssescart2 cart cart box_1">
+                        <button class="top_transmitv_cart">
+                            <a href="/Account/Logout">
+                                Log Out <i class="fas fa-user-check"></i>
+                        </button>
+
                     </li>
                 }
                 else
                 {
-                    <li class="button-log usernhy">
-                        <a class="btn-open" href="/Account/Login">
-                            @*<span class="fa fa-user">*@
-                                <i class="fas fa-user-lock"></i>
-                            @*</span>*@
-                        </a>
+                    <li class="transmitvcart galssescart2 cart cart box_1">
+                        <button class="top_transmitv_cart">
+                            <a href="/Account/Login">
+                                Log In <i class="fas fa-user-lock"></i>
+                            </a>
+                        </button>
                     </li>
                 }
-                <li class="transmitvcart galssescart2 cart cart box_1">
-                    <form action="#" method="post" class="last">
-                        <input type="hidden" name="cmd" value="_cart">
-                        <input type="hidden" name="display" value="1">
-                        <button class="top_transmitv_cart" type="submit" name="submit" value="">
-                            My Cart
-                            <span class="fa fa-shopping-cart"></span>
-                        </button>
-                    </form>
-                </li>
             </ul>
             <!--//right-->
-         </div>
+        </div>
     </div>
     <!--/nav-->
     <nav class="navbar navbar-expand-lg navbar-light">
@@ -57,28 +47,7 @@
                         <img src="image-path" alt="Your logo" title="Your logo" style="height:35px;" />
                     </a> -->
             <!--/search-right-->
-            @*<div class="search-right">
 
-                <a href="#search" title="search">
-                    <span class="fa fa-search mr-2" aria-hidden="true"></span>
-                    <span class="search-text">Search here</span>
-                </a>
-                 search popup 
-                <div id="search" class="pop-overlay">
-                    <div class="popup">
-
-                        <form action="#" method="post" class="search-box">
-                            <input type="search" placeholder="Keyword" name="search" required="required"
-                                   autofocus="">
-                            <button type="submit" class="btn">Search</button>
-                        </form>
-
-                    </div>
-                    <a class="close" href="#">×</a>
-                </div>
-                 /search popup 
-            </div>*@
-            <!--//search-right-->
             <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -86,16 +55,16 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
+                    <li class="nav-item @ViewBag.Home">
                         <a class="nav-link" href="/Home/Index">Home</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item @ViewBag.About">
                         <a class="nav-link" href="/Home/About">About</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item @ViewBag.Class">
                         <a class="nav-link" href="/Home/Class">Our Classes</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item @ViewBag.Contact">
                         <a class="nav-link" href="/Home/Contact">Contact</a>
                     </li>
                 </ul>

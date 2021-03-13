@@ -13,27 +13,29 @@ namespace Handcraft.Models
 
         private List<SliderModel> _slider;
         private List<CategoryModel> _category;
-        private ClassModel _newClass;
+        private FullClassModel _newClass;
         private List<ClassModel> _classes;
 
         public HomeViewModel()
         {
 
+            #region Section Banner Slider
             // Section Banner Slider
             Slider = new List<SliderModel>();
             Slider.Add(new SliderModel() { Link = "#", Picture = "banner1.jpg" });
             Slider.Add(new SliderModel() { Link = "#", Picture = "banner2.jpg" });
             Slider.Add(new SliderModel() { Link = "#", Picture = "banner3.jpg" });
-            Slider.Add(new SliderModel() { Link = "#", Picture = "banner4.jpg" });
+            Slider.Add(new SliderModel() { Link = "#", Picture = "banner4.jpg" }); 
+            #endregion
 
             // Section Class Category (Collections)
             Category = uow.GetAllCategoryModel();
 
             // Section Video (New workshop/online class)
-            NewClass = new ClassModel() { TrailerURL = "https://www.youtube.com/embed/aTkCLROKqKQ" };
+            NewClass = new FullClassModel() { TrailerURL = "https://www.youtube.com/embed/aTkCLROKqKQ" };
 
-            // Section Classes (Let's craft with us)
-            Classes = uow.GetAllClassModel();
+            // Section Featured Classes (Let's craft with us)
+            Classes = uow.GetFeaturedClassModel(8);
             
         }
         public List<SliderModel> Slider
@@ -62,7 +64,7 @@ namespace Handcraft.Models
             }
         }
 
-        public ClassModel NewClass
+        public FullClassModel NewClass
         {
             get
             {

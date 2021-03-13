@@ -8746,8 +8746,8 @@ iframe {
             color: #ff7315;
             font-size: 16px;
             z-index: 9;
-            right: 15px;
-            top: 13px;
+            right: 20px;
+            top: 3px;
         }
 
         .w3l-ecommerce-main-inn .ecom-ordering-select select:focus {

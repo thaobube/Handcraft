@@ -13,12 +13,14 @@ namespace Handcraft.Repositories
     public class UnitOfWork
     {
         IConcreteRepository<ClassEntity> _classRepo;
+        IConcreteRepository<FullClassEntity> _fullClassRepo;
         IConcreteRepository<CategoryEntity> _categoryRepo;
         IConcreteRepository<ContactMessageEntity> _contactMessageRepo;
         IConcreteRepository<UserEntity> _userRepo;
         public UnitOfWork(string connectionString)
         {
             _classRepo = new ClassRepository(connectionString);
+            _fullClassRepo = new FullClassRepository(connectionString);
             _categoryRepo = new CategoryRepository(connectionString);
             _contactMessageRepo = new ContactMessageRepository(connectionString);
             _userRepo = new UserRepository(connectionString);
@@ -34,7 +36,6 @@ namespace Handcraft.Repositories
             foreach (CategoryEntity item in categoryListFromDB)
             {
                 CategoryModel cgm = new CategoryModel();
-                cgm.Link = item.Link;
                 cgm.Name = item.Name;
                 cgm.Picture = item.Picture;
                 categoryListForController.Add(cgm);
@@ -43,11 +44,21 @@ namespace Handcraft.Repositories
         }
         #endregion
 
-        #region Class
-        public List<ClassModel> GetAllClassModel()
+        public int CountClasses()
         {
-            // Get all the classes from DB
-            List<ClassEntity> classListfromDB = _classRepo.Get();
+            return _classRepo.Get().Count();
+        }
+        
+        public int CountClassesAllPage(string sortOrder, string category, string searchString, int page)
+        {
+            return ((ClassRepository)_classRepo).GetClassEntityAllPage(sortOrder, category, searchString, page).Count();
+        }
+        
+        #region Class
+        public List<ClassModel> GetClassModelByPage(string sortOrder, string category, string searchString, int page)
+        {
+            // Get the classes from DB
+            List<ClassEntity> classListfromDB = ((ClassRepository)_classRepo).GetClassEntityByPage(sortOrder, category, searchString, page);
             //Mapping
             List<ClassModel> classListforController = new List<ClassModel>();
             foreach (ClassEntity item in classListfromDB)
@@ -55,24 +66,76 @@ namespace Handcraft.Repositories
                 ClassModel cm = new ClassModel();
                 cm.IdClass = item.IdClass;
                 cm.ClassName = item.ClassName;
-                cm.Description = item.Description;
-                cm.TrailerURL = item.TrailerURL;
-                cm.Price = item.Price;
-                cm.Duration = new TimeSpan(item.Duration);
-                cm.FirstNameCoordinator = item.FirstNameCoordinator;
-                cm.LastNameCoordinator = item.LastNameCoordinator;
-                cm.FirstNameTutor = item.FirstNameTutor;
-                cm.LastNameTutor = item.LastNameTutor;
-                cm.ThumbnailFront = item.ThumbnailFront;
-                cm.ThumbnailBack = item.ThumbnailBack;
-                cm.ThumbnailDetail1 = item.ThumbnailDetail1;
-                cm.ThumbnailDetail2 = item.ThumbnailDetail2;
-                cm.ThumbnailDetail3 = item.ThumbnailDetail3;
+                cm.Price = System.Math.Round(item.Price, 2);
+                cm.ThumbnailFront = "../images/Classes/" + item.IdClass + "/" + item.ThumbnailFront;
+                cm.ThumbnailBack = "../images/Classes/" + item.IdClass + "/" + item.ThumbnailBack;
+                cm.CategoryName = item.CategoryName;
+                cm.Date = item.Date.ToString("dd/MM/yyyy");
                 classListforController.Add(cm);
             }
             return classListforController;
         }
+
+        public List<ClassModel> GetFeaturedClassModel(int number)
+        {
+            // Get the number of the classes from DB
+            List<ClassEntity> featuredClassesfromDB = ((ClassRepository)_classRepo).GetFeaturedClassEntity(number);
+            List<ClassModel> featuredClassesforController = new List<ClassModel>();
+            //Mapping
+            foreach (ClassEntity item in featuredClassesfromDB)
+            {
+                ClassModel cm = new ClassModel();
+                cm.IdClass = item.IdClass;
+                cm.ClassName = item.ClassName;
+                cm.Price = System.Math.Round(item.Price, 2); 
+                cm.ThumbnailFront = "/images/Classes/" + item.IdClass + "/" + item.ThumbnailFront;
+                cm.ThumbnailBack = "/images/Classes/" + item.IdClass + "/" + item.ThumbnailBack;
+                cm.CategoryName = item.CategoryName;
+                cm.Date = item.Date.ToString("dd/MM/yyyy");
+                featuredClassesforController.Add(cm);
+            }
+            return featuredClassesforController;
+        }
+
+        public int CountClassByCategory (string categoryName)
+        {
+            // Get the classes from DB
+            List<ClassEntity> classesByCategoryfromDB = ((ClassRepository)_classRepo).GetClassEntityByCategory(categoryName);
+            int count = classesByCategoryfromDB.Count();
+            return count;
+        }
         #endregion
+
+        public FullClassModel GetTargetClassModel(int PK)
+        {
+            // Get the target class entity
+            FullClassEntity classfromDB = _fullClassRepo.GetOne(PK);
+
+            // Mapping
+            FullClassModel classforController = new FullClassModel();
+            classforController.IdClass = classfromDB.IdClass;
+            classforController.ClassName = classfromDB.ClassName;
+            classforController.Description = classfromDB.Description;
+            classforController.Price = System.Math.Round(classfromDB.Price, 2);
+            classforController.Duration = classfromDB.Duration;
+            classforController.FirstNameCoordinator = classfromDB.FirstNameCoordinator;
+            classforController.LastNameCoordinator = classfromDB.LastNameCoordinator;
+            classforController.FirstNameTutor = classfromDB.FirstNameTutor;
+            classforController.LastNameTutor = classfromDB.LastNameTutor;
+            classforController.ThumbnailFront = "/images/Classes/" + classfromDB.IdClass + "/" + classfromDB.ThumbnailFront;
+            classforController.ThumbnailBack = "/images/Classes/" + classfromDB.IdClass + "/" + classfromDB.ThumbnailBack;
+
+            classforController.StudioName = classfromDB.StudioName;
+            classforController.Number = classfromDB.Number;
+            classforController.Street = classfromDB.Street;
+            classforController.City = classfromDB.City;
+            classforController.Country = classfromDB.Country;
+            classforController.Date = classfromDB.Date.ToString("dd/MM/yyyy");
+            classforController.TimeStart = classfromDB.TimeStart;
+            classforController.TimeEnd = classfromDB.TimeEnd;
+            classforController.CategoryName = classfromDB.CategoryName;
+            return classforController;
+        }
 
         #region Contact
         public bool SaveContact(ContactModel cm)
@@ -88,6 +151,7 @@ namespace Handcraft.Repositories
         }
         #endregion
 
+        #region Login
         public UserModel UserVefif(LoginModel lm)
         {
             UserEntity ue = ((UserRepository)_userRepo).GetUserEntityFromLogin(lm.Login);
@@ -98,7 +162,7 @@ namespace Handcraft.Repositories
             else
             {
                 SecurityHelper sh = new SecurityHelper();
-                if (sh.VerifyHash(lm.Password, ue.Password,ue.Salt))
+                if (sh.VerifyHash(lm.Password, ue.Password, ue.Salt))
                 {
                     return new UserModel()
                     {
@@ -118,7 +182,9 @@ namespace Handcraft.Repositories
                 }
             }
         }
+        #endregion
 
+        #region SignUp
         public bool CreateUser(UserModel um)
         {
             SecurityHelper sh = new SecurityHelper();
@@ -137,6 +203,7 @@ namespace Handcraft.Repositories
             ue.Password = hashPwd;
             return _userRepo.Insert(ue);
         }
+        #endregion
 
     }
 }

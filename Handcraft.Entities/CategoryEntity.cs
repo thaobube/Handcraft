@@ -9,23 +9,10 @@ namespace Handcraft.Entities
     public class CategoryEntity
     {
         #region Fields
-        private string _link, _name, _picture;
+        private string _name, _picture;
         #endregion
 
         #region Properties
-        public string Link
-        {
-            get
-            {
-                return _link;
-            }
-
-            set
-            {
-                _link = value;
-            }
-        }
-
         public string Name
         {
             get

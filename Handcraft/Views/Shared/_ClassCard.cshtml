@@ -1,0 +1,22 @@
+﻿@model Handcraft.Models.ClassModel
+<div class="product-grid2 transmitv">
+    <div class="product-image2">
+        <a href="@Url.Action("ClassInfo", "Home", new { id = Model.IdClass })">
+            <img class="pic-1 img-fluid" src="@Model.ThumbnailFront">
+            <img class="pic-2 img-fluid" src="@Model.ThumbnailBack">
+        </a>
+        <div class="transmitv single-Model">
+
+            <button class="transmitv-cart ptransmitv-cart add-to-cart">
+                @Model.Date
+            </button>
+
+        </div>
+    </div>
+    <div class="product-content">
+        <h3 class="title">
+            <a href="@Url.Action("ClassInfo", "Home", new { id = Model.IdClass })">@Model.ClassName </a>
+        </h3>
+        <span class="price">@Model.Price €</span>
+    </div>
+</div>

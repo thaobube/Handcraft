@@ -45,6 +45,7 @@
     <Compile Include="CategoryModel.cs" />
     <Compile Include="ClassModel.cs" />
     <Compile Include="ContactModel.cs" />
+    <Compile Include="FullClassModel.cs" />
     <Compile Include="LoginModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SliderModel.cs" />

@@ -9,23 +9,12 @@ namespace Handcraft.Models
     public class CategoryModel
     {
         #region Fields
-        private string _link, _name, _picture;
+        private string _name, _picture;
+        private int _count;
         #endregion
 
         #region Properties
-        public string Link
-        {
-            get
-            {
-                return _link;
-            }
-
-            set
-            {
-                _link = value;
-            }
-        }
-
+      
         public string Name
         {
             get
@@ -50,7 +39,20 @@ namespace Handcraft.Models
             {
                 _picture = value;
             }
-        } 
+        }
+
+        public int Count
+        {
+            get
+            {
+                return _count;
+            }
+
+            set
+            {
+                _count = value;
+            }
+        }
         #endregion
     }
 }
