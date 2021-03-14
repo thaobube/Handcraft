@@ -38,6 +38,14 @@ namespace Handcraft.Repositories
             throw new NotImplementedException();
         }
 
+        public bool UpdatePicture(UserEntity toUpdate)
+        {
+            string request = @"UPDATE [User]
+                        SET [Picture]=@Picture
+                        WHERE IdUser=@IdUser";
+            return base.Update(toUpdate, request);
+        }
+
         public bool Delete(UserEntity toDelete)
         {
             throw new NotImplementedException();

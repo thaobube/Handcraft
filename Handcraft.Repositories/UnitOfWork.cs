@@ -205,5 +205,15 @@ namespace Handcraft.Repositories
         }
         #endregion
 
+        public bool EditUserProfilePicture(UserModel um)
+        {
+            // Mapping
+            UserEntity ue = new UserEntity();
+            ue.IdUser = um.IdUser;
+            ue.Picture = um.Picture;
+
+            return ((UserRepository)_userRepo).UpdatePicture(ue);
+        }
+
     }
 }

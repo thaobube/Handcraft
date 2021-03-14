@@ -89,5 +89,6 @@
     <Build Include="dbo\Views\V_Class_Category.sql" />
     <Build Include="dbo\Views\V_Workshop_Calendar.sql" />
     <Build Include="dbo\Views\V_Workshop_Studio.sql" />
+    <Build Include="dbo\Stored Procedures\CategoryClasses.sql" />
   </ItemGroup>
 </Project>
