@@ -197,13 +197,14 @@
                 </div>
                 <div class="ecommerce-right-hny col-lg-8">
                     <div class="row ecomhny-topbar">
-                        <div class="col-8 ecomhny-result">
+                        <div class="col-lg-4 col-12 ecomhny-result">
                             <a href="/Home/Class" class="ecomhny-result-count btn btn-warning"> Show all Classes</a>
                             <br />
                             <br />
                             <h4 class="ecomhny-result-count"> There are @Model.MaxClass Results</h4>
                         </div>
-                        <div class="col-4 ecomhny-topbar-ordering">
+                        <div class="col-lg-4 col-4"></div>
+                        <div class="col-lg-4 col-8 ecomhny-topbar-ordering">
                             <strong>SORT BY:</strong>
                             <div class="ecom-ordering-select d-flex">
 
@@ -237,17 +238,18 @@
 
                     </div>
 
-                    <!--Example from Netflax-->
-                    @*Filter By :@Html.ActionLink("Movie Title", "Reviews", new { sortOrder = ViewBag.NameSortParm }) @Html.ActionLink("Release Date", "Reviews", new { sortOrder = ViewBag.DateSortParm })
-        <a href="@Url.Action("Class", "Home", new { sortOrder = ViewBag.DateSort })">Movie Title</a>
-        <a href="@Url.Action("Class", "Home", new { sortOrder = ViewBag.PriceSort })">Release Date</a>*@
-                    <!-- /Example from Netflax-->
+                    <!--/pagination-->
+                    @{
+                        Html.RenderPartial("~/Views/Shared/_pagination.cshtml", new ViewDataDictionary { { "MaxPage", Model.MaxPage } });
+                    }
+                    <!--//pagination-->
+                    <br />
                     <!-- /row-->
                     <div class="ecom-products-grids row">
                         @foreach (Handcraft.Models.ClassModel item in Model.Classes)
                         {
-                            <div class="col-lg-4 col-6 product-incfhny mb-4">                                
-                                @{ 
+                            <div class="col-lg-4 col-6 product-incfhny mb-4">
+                                @{
                                     Html.RenderPartial("~/Views/Shared/_ClassCard.cshtml", item);
                                 }
                             </div>
